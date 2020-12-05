@@ -1,5 +1,1 @@
 *.pbxproj -text
-*.css linguist-detectable=false
-*.js linguist-detectable=true
-*.java linguist-detectable=false
-*.objective-c linguist-detectable=false
