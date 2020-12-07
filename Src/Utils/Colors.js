@@ -6,5 +6,6 @@ export const Colors=
         QUATERNARY:"#DBF6E9",
         TITLECOLOR:"#37474F",
         SUBTITLECOLOR:"#546E7A",
+        RED:"#f44336"
     }
     

@@ -15,7 +15,7 @@ componentDidMount(){
   Axios.get(API_URL)
   .then(data=>{
     this.setState({data:data.data.result})
-   console.warn("veri", JSON.stringify(data.data.result.length,0,3))
+   console.warn("veri", JSON.stringify(data.data.result,0,3))
   })
 }
   render() {
@@ -23,12 +23,12 @@ componentDidMount(){
     return (
      <SafeAreaView style={{flex:1}}>
        
-      <View style={{flex:1}}>
-      <StatusBar translucent backgroundColor={Colors.TERTIARY}/>
+      <View style={{flex:1,backgroundColor:"#fff"}}>
+      <StatusBar  barStyle={"light-content"}/>
     
           <FlatList
         data={this.state.data}
-        renderItem={(item)=><EarthquakeCard item={item}/>}
+        renderItem={(item)=><EarthquakeCard item={item} {...this.props}/>}
         //keyExtractor={item => item.id}
       />
       </View>

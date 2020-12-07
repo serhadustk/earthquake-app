@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import Feather from 'react-native-vector-icons/Feather'
 import { Colors } from '../../Utils/Colors';
+import HomeController from '../../Controllers/Home.controller';
 
 
 export default class EarthquakeCard extends Component {
@@ -14,13 +15,24 @@ export default class EarthquakeCard extends Component {
 
   render() {
       const {item}=this.props
-      //console.warn(item.item,0,3)
+      //console.warn(this.props)
     return (
     
-      <TouchableOpacity style={{flexDirection:"row",backgroundColor:"#fff",margin:2,padding:5}}>
+      <TouchableOpacity
+      onPress={()=>this.props.navigation.navigate("QuakeDetail",item)} 
+      activeOpacity={0.8}
+      style={{flexDirection:"row",backgroundColor:"#fff",margin:1,padding:5,shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 1,
+      },
+      shadowOpacity: 0.22,
+      shadowRadius: 2.22,
+      
+      elevation: 3,}}>
        <View style={{justifyContent:"center",alignItems:"center"}}>
-       <Fontisto name="heartbeat-alt" size={25} color={Colors.SECONDARY}/>
-       <Text> {item.item.mag} </Text>
+       <Fontisto name="heartbeat-alt" size={25} color={Colors.RED}/>
+       <Text style={{color:HomeController.degreeColor(item.item.mag),fontWeight:"bold"}}> {item.item.mag} </Text>
        </View>
        <View style={{flex:3,justifyContent:"center"}}>
        <Text style={{color:Colors.TITLECOLOR,fontWeight:"bold"}}> {item.item.title} </Text>

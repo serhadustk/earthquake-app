@@ -8,6 +8,7 @@ import Home from '../Pages/Home.page';
 import Map from '../Pages/Map.page';
 import Statistics from '../Pages/Statistics.page';
 import { Colors } from '../Utils/Colors';
+import QuakeDetail from '../Pages/QuakeDetail.page';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -54,15 +55,31 @@ function Navigation() {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        options={{ headerShown: true }}
         name="TabNavigator"
         component={TabNavigator}
-        options={{ headerShown: false }}
+        options={{ headerShown: true ,
+            headerTitle:"Depremler" ,
+            headerTintColor:"#fff",
+            headerStyle:{
+                backgroundColor: Colors.PRIMARY,
+            }
+        }}
       />
-      {/* <Stack.Screen
+      <Stack.Screen
         name="QuakeDetail"
         component={QuakeDetail}
-        options={{ headerShown: false }}
+        options={{ headerShown: true,
+            headerTitle:"Deprem Detayı",
+            headerTintColor:"#fff",
+            headerStyle:{
+                backgroundColor: Colors.PRIMARY,
+            }
+        
+        }}
+      
       />
+      {/* 
       <Stack.Screen
         name="MapDetail"
         component={MapDetail}
